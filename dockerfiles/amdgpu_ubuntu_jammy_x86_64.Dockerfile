@@ -23,7 +23,7 @@ RUN rmdir /install-amdvlk
 # Install the ROCM driver.
 # In order to use this in the container, you must pass /dev/dri and /dev/kfd in as:
 #   docker run --device=/dev/kfd --device=/dev/dri <docker ID> rocminfo
-ARG ROCM_VERSION=5.6
+ARG ROCM_VERSION=6.0
 WORKDIR /install-rocm
 RUN mkdir --parents --mode=0755 /etc/apt/keyrings && wget https://repo.radeon.com/rocm/rocm.gpg.key -O - | \
     gpg --dearmor | tee /etc/apt/keyrings/rocm.gpg > /dev/null && \
