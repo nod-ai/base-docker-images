@@ -31,5 +31,8 @@ RUN ./install_the_rock.sh \
   && rm -rf /install-the-rock
 WORKDIR /
 
+# Clean up.
+RUN apt clean && rm -rf /var/lib/apt/lists/*
+
 # Switch back to the working directory upstream expects.
 WORKDIR /actions-runner
