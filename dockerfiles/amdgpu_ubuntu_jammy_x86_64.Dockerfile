@@ -21,6 +21,12 @@ ARG AMDGPU_VERSION=6.1
 COPY build_tools/install_amdgpu.sh ./
 RUN ./install_amdgpu.sh "${AMDGPU_VERSION}" && rm -rf /install-amdgpu
 
+# Runtime IREE Python dependencies
+WORKDIR /install-runtime-iree-python-deps
+COPY build_tools/install_runtime_iree_python_deps.sh ./
+RUN ./install_runtime_iree_python_deps.sh \
+  && rm -rf /install-runtime-iree-python-deps
+
 # TheRock (ROCm)
 WORKDIR /install-the-rock
 COPY build_tools/install_the_rock.sh ./
